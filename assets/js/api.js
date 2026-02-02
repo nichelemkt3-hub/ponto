@@ -7,3 +7,9 @@ async function api(payload) {
   });
   return res.json();
 }
+
+function marcarKmConfirmado(botao) {
+  botao.classList.add('ok');
+  botao.innerText = 'KM Confirmado ✔';
+  botao.disabled = true;
+}
