@@ -57,11 +57,22 @@
     <h2>Registro de Ponto</h2>
 
     <div class="grid-2">
-      <button id="entrada" onclick="registrarHora('entrada')">Entrada</button>
-      <button id="saidaAlmoco" onclick="registrarHora('saidaAlmoco')">Saída Almoço</button>
-      <button id="retornoAlmoco" onclick="registrarHora('retornoAlmoco')">Retorno Almoço</button>
-      <button id="saidaFinal" onclick="registrarHora('saidaFinal')">Saída Final</button>
-    </div>
+     <button id="entrada" class="primary" onclick="registrarHora('entrada')">
+  Entrada
+</button>
+
+<button id="saidaAlmoco" class="locked" disabled>
+  Saída Almoço
+</button>
+
+<button id="retornoAlmoco" class="locked" disabled>
+  Retorno Almoço
+</button>
+
+<button id="saidaFinal" class="locked" disabled>
+  Saída Final
+</button>
+
   </section>
 
 </div>
