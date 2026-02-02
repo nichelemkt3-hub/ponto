@@ -109,6 +109,73 @@ button:disabled {
   cursor: not-allowed;
 }
 
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-box {
+  background: white;
+  padding: 24px;
+  border-radius: 18px;
+  width: 90%;
+  max-width: 340px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  animation: pop 0.25s ease;
+}
+
+.modal-box h3 {
+  margin: 0;
+}
+
+.modal-box p {
+  margin: 10px 0 20px;
+  color: var(--muted);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.modal-actions button {
+  flex: 1;
+}
+
+/* botões modal */
+button.cancel {
+  background: #e5e7eb;
+  color: #111;
+}
+
+button.confirm {
+  background: var(--primary);
+  color: white;
+}
+
+/* animação */
+@keyframes pop {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 /* MOBILE */
 @media (max-width: 480px) {
   .grid-2 {
