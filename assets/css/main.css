@@ -1,6 +1,6 @@
 :root {
-  --primary: #1e88e5;
-  --success: #2e7d32;
+  --primary: #6d28d9;     /* roxo premium */
+  --success: #16a34a;     /* verde ok */
   --bg: #f2f4f8;
   --card: #ffffff;
   --text: #1f2933;
@@ -86,26 +86,26 @@ button {
   border-radius: 12px;
   border: none;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  background: #e5e7eb;
-}
-
-/* BOTÃO PRINCIPAL */
-button.primary {
   background: var(--primary);
   color: white;
+  transition: all 0.25s ease;
 }
 
-/* BOTÃO CONCLUÍDO */
+/* hover elegante */
+button:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+/* concluído */
 button.done {
   background: var(--success);
-  color: white;
 }
 
-/* BLOQUEADO */
+/* bloqueado */
 button:disabled {
-  opacity: 0.65;
+  opacity: 0.75;
   cursor: not-allowed;
 }
 
