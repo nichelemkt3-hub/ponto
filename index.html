@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cartão Ponto</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Cartão Ponto</h1>
+
+  <div class="card">
+    <input id="vendedor" placeholder="Vendedor">
+    <input id="codigo" placeholder="Código">
+    <button onclick="salvarUsuario()">Salvar</button>
+  </div>
+
+  <div class="card">
+    <button onclick="registrarHora('entrada')">Entrada</button>
+    <button onclick="registrarHora('saidaAlmoco')">Saída Almoço</button>
+    <button onclick="registrarHora('retornoAlmoco')">Retorno Almoço</button>
+    <button onclick="registrarHora('saidaFinal')">Saída Final</button>
+  </div>
+
+  <div class="card">
+    <h3>KM Saída</h3>
+    <input type="number" id="kmSaida">
+    <input type="file" id="fotoSaida">
+    <button onclick="registrarKm('km_saida')">Enviar KM Saída</button>
+  </div>
+
+  <div class="card">
+    <h3>KM Final</h3>
+    <input type="number" id="kmFinal">
+    <input type="file" id="fotoFinal">
+    <button onclick="registrarKm('km_final')">Enviar KM Final</button>
+  </div>
+
+</div>
+
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ponto.js"></script>
+</body>
+</html>
