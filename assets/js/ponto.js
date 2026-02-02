@@ -25,14 +25,17 @@ function aplicarStatus(id, valor) {
   }
 }
 
+let tipoPendente = null;
+
 function registrarHora(tipo) {
-  api({
-    vendedor: vendedor.value,
-    codigo: codigo.value,
-    tipo,
-    hora: new Date().toLocaleTimeString('pt-BR')
-  });
-  aplicarStatus(tipo, true);
+  tipoPendente = tipo;
+
+  const hora = new Date().toLocaleTimeString('pt-BR');
+  document.getElementById('modalTitle').innerText = 'Confirmar registro';
+  document.getElementById('modalText').innerText =
+    `Confirmar ${formatar(tipo)} às ${hora}?`;
+
+  document.getElementById('confirmModal').classList.remove('hidden');
 }
 
 function registrarKm(tipo) {
@@ -57,4 +60,32 @@ function registrarKm(tipo) {
     });
   };
   reader.readAsDataURL(file);
+}
+
+function confirmarRegistro() {
+  const tipo = tipoPendente;
+  const hora = new Date().toLocaleTimeString('pt-BR');
+
+  api({
+    vendedor: vendedor.value,
+    codigo: codigo.value,
+    tipo,
+    hora
+  });
+
+  aplicarStatus(tipo, true);
+  fecharModal();
+}
+
+function fecharModal() {
+  document.getElementById('confirmModal').classList.add('hidden');
+}
+
+function formatar(tipo) {
+  return {
+    entrada: 'Entrada',
+    saidaAlmoco: 'Saída para almoço',
+    retornoAlmoco: 'Retorno do almoço',
+    saidaFinal: 'Saída final'
+  }[tipo];
 }
