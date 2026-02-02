@@ -17,13 +17,29 @@ window.onload = async () => {
   }
 };
 
-function aplicarStatus(id, valor) {
-  if (valor) {
-    const btn = document.getElementById(id);
-    btn.classList.add('done');
+const ordem = ['entrada', 'saidaAlmoco', 'retornoAlmoco', 'saidaFinal'];
+
+function aplicarStatus(id, feito) {
+  const btn = document.getElementById(id);
+
+  if (feito) {
+    btn.className = 'done';
     btn.disabled = true;
+
+    const proximo = ordem[ordem.indexOf(id) + 1];
+    if (proximo) {
+      liberarBotao(proximo);
+    }
   }
 }
+
+function liberarBotao(id) {
+  const btn = document.getElementById(id);
+  btn.className = 'primary';
+  btn.disabled = false;
+  btn.onclick = () => registrarHora(id);
+}
+
 
 let tipoPendente = null;
 
